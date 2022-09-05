@@ -1,11 +1,39 @@
-# Start your own "Can of Books" App
+# Books
 
-This repository has starter code to begin work on creating your own online bookshelf.
+**Author**:osama
+**Version**: 1.0.0 (increment the patch/fix version number if you make more commits past your first submission)
 
-## What can books do?
+## Overview
 
-Books are life-changing. They have the power to enlighten, educate, entertain, heal, and help us grow. Build out this code base to create an web app to track what books have impacted you, and what's recommended to read next.
+### display a library of books to the uesr and allow them to add a new book or delet it 
 
-## Use this template
+## Getting Started
+### node js for server,mongo db for save the data  and react front end
 
-Clone this repo to your own account with the green "Use this template" button. Then, add any collaborators. Now you are ready to start adding features! Deploy your site to let the world know which books have had the greatest impact on you, and what's recommended. Enjoy!
+## Architecture
+- node.js
+- mongo db 
+- react js
+- bootsrap 
+## Change Log
+
+
+### 09-06-2022 1.55pm - Application now has a fully-functional express server, with a GET route for the location resource. 
+
+## Credit and Collaborations
+### [document](https://www.mongodb.com/docs/)
+
+## Time Estimates
+
+### Name of feature: 
+- node.js(server side)
+- mongo db
+- clint side (Front end)
+
+## Estimate of time needed to complete: 4 hours
+
+## Start time: 5:00pm
+
+## Finish time: 10:00 pm
+
+## Actual time needed to complete: 5 hours
