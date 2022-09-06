@@ -6,7 +6,7 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import Modal from 'react-bootstrap/Modal';
 import swal from 'sweetalert';
-
+import UpdateForm from './UpdateForm';
 import './App.css';
 
 class BestBooks extends React.Component {
@@ -15,7 +15,8 @@ class BestBooks extends React.Component {
     this.state = {
       books: [],
       show:false,
-     
+    showFlag:false,
+    currentBook:{}
     }
   }
 
@@ -78,7 +79,50 @@ axios
 
 }
 
+openForm=(item)=>{
+  
+  this.setState({
+   showFlag:true,
+   currentBook:item
+  })
+}
+closeForm=()=>{
+  this.setState({
+    showFlag:false
+   })
 
+}
+
+updateBook =(e)=>{
+  e.preventDefault();
+  let id= this.state.currentBook._id;
+  console.log(id);
+  const obj={
+    title:e.target.title.value,
+     description:e.target.description.value,
+     status:e.target.status.value
+    }
+  
+axios
+.put(`https://books-lab12.herokuapp.com/updateBook/${id}`,obj)
+.then(result=>{
+  axios
+  .get(`https://books-lab12.herokuapp.com/books`)
+  .then(result =>{
+    this.setState({
+      books:result.data
+    })
+  })
+  this.setState({
+    books:result.data
+  })
+ this.closeForm();
+})
+
+
+
+
+}
   render() {
 
     /* TODO: render all the books in a Carousel */
@@ -152,8 +196,11 @@ return(
         <h3 >{item.title}</h3>
           <p>{item.description}</p>
           <p>{item.status}</p>
-          <Button variant="primary" onClick={()=>this.deleteBook(item._id)} className="vv">
+          <Button variant="primary" onClick={()=>this.deleteBook(item._id)} >
        Delete Book !
+      </Button>
+      <Button variant="primary" onClick={()=>this.openForm(item)} >
+       Update Book !
       </Button>
         </Carousel.Caption>
       </Carousel.Item>
@@ -172,6 +219,10 @@ return(
           <h3>No Books Found :(</h3>
         )}
        </Carousel>
+       <UpdateForm show={this.state.showFlag} handleclose={this.closeForm}
+       currentBook={this.state.currentBook}
+     update={this.updateBook}
+       />
       </>
     )
   }
