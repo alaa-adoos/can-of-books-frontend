@@ -1,13 +1,10 @@
-import React from "react";
+import React from 'react';
+import { useAuth0 } from '@auth0/auth0-react';
 
-class profile extends React.Component{
-render(){
-    return (
-        <h1>profile</h1>
-    )
-       
-    
+function Profile() {
+  const { user } = useAuth0();
+
+  return <div className='hello'><h1>Hello {user.name}</h1></div>;
 }
 
-}
-export default profile;
+export default Profile;
