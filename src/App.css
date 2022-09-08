@@ -1,7 +1,15 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Combo&display=swap');
+
+.logo{
+    font-family: 'Combo', cursive;
+
+}
+
 .items{
     
     margin: 20%;
-    background-color: red;
+    background-color: #F2D388;
 }
 h2{
     text-align: center;
@@ -24,4 +32,25 @@ align-items: center;
 }
 button{
     margin: 20px;
+}
+.login-nav{
+    margin-left: auto;
+    
+}
+.hello{
+   background-color: #F2D388;
+   padding: 20%;
+}
+.hello h1{
+    text-align: center;
+    font-family: 'Combo', cursive;
+
+}
+.d{
+    margin-left: auto;
+}
+h1{
+    background-color: #F2D388;
+    text-align: center;
+    font-family: 'Combo', cursive;
 }

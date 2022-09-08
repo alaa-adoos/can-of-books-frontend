@@ -7,6 +7,8 @@ import Form from 'react-bootstrap/Form';
 import Modal from 'react-bootstrap/Modal';
 import swal from 'sweetalert';
 import UpdateForm from './UpdateForm';
+import { withAuth0 } from '@auth0/auth0-react';
+
 import './App.css';
 
 class BestBooks extends React.Component {
@@ -126,11 +128,15 @@ axios
   render() {
 
     /* TODO: render all the books in a Carousel */
+    const { isAuthenticated} = this.props.auth0;
 
     return (
+      
       <>
+     
+     <div className='bestBook'>
         <h2>My Essential Lifelong Learning &amp; Formation Shelf</h2>
-        <Button variant="primary" onClick={this.handleShow} className="buttonAdd">
+        <Button variant="btn btn-warning" onClick={this.handleShow} className="buttonAdd">
        Add Book
       </Button>
       
@@ -223,9 +229,13 @@ return(
        currentBook={this.state.currentBook}
      update={this.updateBook}
        />
+     </div>
+
       </>
+  
+  
     )
   }
 }
 
-export default BestBooks;
+export default  withAuth0(BestBooks);
